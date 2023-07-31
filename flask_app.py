@@ -31,7 +31,7 @@ with app.app_context():
 
 osem_access : OsemAccess = None
 ttn_access : TtnAccess = None
-ttn_app_id = "dev-ubg-app"
+ttn_app_id = ""
 login_manager = LoginManager()
 login_manager.init_app(app)
 login_manager.login_view = 'login'
@@ -667,6 +667,7 @@ def logout():
 def configure_api_access():
     global osem_access
     global ttn_access
+    global ttn_app_id
     config = configparser.ConfigParser()
     
     config.read('flask_app_configuration.ini')
@@ -675,6 +676,7 @@ def configure_api_access():
         ttn_full_acc_key = config["TTN"]["full_account_key"]
         ttn_username = config["TTN"]["username"]
         ttn_app_id = config["TTN"]["app_id"]
+        print("TTTTNNNNNNNNNN appid", ttn_app_id)
         ttn_access = TtnAccess(full_account_key=ttn_full_acc_key,
             username=ttn_username
         )

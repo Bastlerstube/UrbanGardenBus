@@ -278,18 +278,19 @@
             ← Back to sensor model creation
             </h1>
     </a>
+ 
 
     <button id="create-new-sensor-form" type="button" onclick="setVisible('create-new-sensor-form')"
         class="collapsible">Create a new sensor model</button>
     <div class="content">
         <form method="POST" action="">
             {{form.hidden_tag()}}
-            <label for="model_name">Sensor model name:</label>
-            {{form.model_name}}
-            <label for="phenomenon_name">Phenomenon:</label>
+            <label for="phenomenon_name">Phänomen:</label>
             {{form.phenomenon_name}}
-            <label for="unit_name">Unit:</label>
+            <label for="unit_name">Einheit:</label>
             {{form.unit_name}}
+            <label for="model_name">Sensor Typ:</label>
+            {{form.model_name}}	
             <label for="calibration_needed">Calibration needed?</label>
             {{form.calibration_needed}}
             {{form.submit}}

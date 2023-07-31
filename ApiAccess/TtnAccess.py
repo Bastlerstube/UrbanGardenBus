@@ -40,6 +40,7 @@ class TtnAccess():
     def create_new_ttn_enddevice(self, join_eui, dev_eui, dev_id, app_id, app_key):
         url = 'https://eu1.cloud.thethings.network/api/v3/applications/{app_id}/devices'.format(
             app_id=app_id)
+        print("URLLLLLLLLLLLL", url)
         headers = {
             'content-type': 'application/json',
             'Authorization': 'Bearer {auth_token}'.format(auth_token=self.full_acc_key)

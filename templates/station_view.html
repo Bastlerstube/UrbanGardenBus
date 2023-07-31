@@ -374,8 +374,8 @@
         <h1>Sensors</h1>
         <form method="POST" action="{{url_for('add_sensor_to_station', station_id=station.id)}}">
             {{sensor_form.hidden_tag()}}
-            <label for="sensor_type">Sensor type:</label>
-            {{sensor_form.sensor_type}}
+            <label for="phenomenon_name">Phänomen:</label>
+            {{sensor_form.phenomenon_name}}
             <br>
             <label for="slot">Slot:</label>
             {{sensor_form.sensor_slot}}
@@ -387,15 +387,15 @@
         <h2>No sensors added yet</h2>
         {% else %}
         <table id="sensor-table">
-            <th>Sensor model</th>
+            <th>Phänomen:</th> 
             <th>Slot</th>
             <th>Calibration value</th>
-            <th>Phenomenon</th>
+			<th>Sensor Type</th>
             <th></th>
             {% for sensor in sensors %}
             <tr>
                 <td>
-                    {{ sensor["sensor_model_name"] }}
+					{{ sensor["phenomenon"] }}    
                 </td>
                 <td class="sensorTableSlotColumm">
                     {{ sensor["sensor_slot"] }}
@@ -411,7 +411,7 @@
                         </form>
                         {% endif %}
                     </td>
-                    <td>{{ sensor["phenomenon"] }}</td>
+                    <td>{{ sensor["sensor_model_name"] }}</td>
                     <td>
                         <form method="POST"
                             action="{{url_for('delete_sensor', station_id=station.id, slot=sensor['sensor_slot'])}}"
